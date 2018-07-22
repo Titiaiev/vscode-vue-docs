@@ -4,55 +4,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 const vscode = require("vscode");
 
-function activate(context) {
-  context.subscriptions.push(vscode.commands.registerCommand('extension.openVueDocs', () => {
-    let opts = ['Vue', 'Vuex', 'Vue Router', 'Vue SSR', 'Node'];
-
-    vscode.window.showQuickPick(opts).then((choicedOption) => {
-      const getUriFor = (link) => {
-        let uri = '';
-
-        switch (link) {
-          case 'Vue':
-            uri = 'https://ru.vuejs.org/v2/guide/';
-            break;
-          case 'Vuex':
-            uri = 'https://vuex.vuejs.org/ru/';
-            break;
-          case 'Vue Router':
-            uri = 'https://router.vuejs.org/ru/';
-            break;
-          case 'Vue SSR':
-            uri = 'https://ssr.vuejs.org/ru/';
-            break;
-          case 'Node':
-            uri = "https://nodejs.org/docs/latest-v8.x/api/"
-            break;
-          default:
-            uri = 'https://ru.vuejs.org/v2/guide/';
-            break;
-        }
-        // TODO: delete logs 
-        // console.log('Выбран пункт: ', link);
-        // console.log('uri: ', uri);
-        return uri;
-      };
-      const choicedUri = getUriFor(choicedOption);
-      const panel = vscode.window.createWebviewPanel('webDocs', choicedOption, vscode.ViewColumn.One, {
-        enableScripts: true,
-        retainContextWhenHidden: true
-      });
-      panel.webview.html = getWebviewContent(choicedUri);
-
-    });
-  }));
-}
-
-exports.activate = activate;
-
-
-function getWebviewContent(uri) {
-  let html = `
+const getWebviewContent = (uri) => {
+  const html = `
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -72,3 +25,40 @@ function getWebviewContent(uri) {
     `;
   return html;
 }
+
+const activate = (context) => {
+  context.subscriptions.push(vscode.commands.registerCommand('extension.openVueDocs', () => {
+    let menuItems = ['Vue', 'Vuex', 'Vue Router', 'Vue SSR'];
+
+    vscode.window.showQuickPick(menuItems).then((selectedMenuItem) => {
+      const getURI_of = (item) => {
+        let URI_of = {
+          ['Vue']: 'https://ru.vuejs.org/v2/guide/',
+          ['Vuex']: 'https://vuex.vuejs.org/ru/',
+          ['Vue Router']: 'https://router.vuejs.org/ru/',
+          ['Vue SSR']: 'https://ssr.vuejs.org/ru/'
+        };
+
+        // TODO: delete logs 
+        // console.log('Выбран пункт: ', item);
+        // console.log('URI_of: ', URI_of[item]);
+        return URI_of[item];
+      };
+
+      const selectedURI = getURI_of(selectedMenuItem);
+      const panel = vscode.window.createWebviewPanel('webDocs', selectedMenuItem, vscode.ViewColumn.One, {
+        // разрешить загруженным сайтам использовать свои скрипты (потенциально опасно)
+        // https://code.visualstudio.com/docs/extensions/webview#_scripts-and-message-passing
+        enableScripts: true,
+
+        // лучше использовать сохранение состояния
+        // https://code.visualstudio.com/docs/extensions/webview#_persistence
+        retainContextWhenHidden: true
+      });
+      panel.webview.html = getWebviewContent(selectedURI);
+
+    });
+  }));
+};
+
+exports.activate = activate;
