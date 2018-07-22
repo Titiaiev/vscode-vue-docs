@@ -1,0 +1,32 @@
+{
+    "name": "vue-docs-ru",
+    "displayName": "vue docs-ru",
+    "description": "Просмотр документации Vue.js и дополнений, прямо из VS Code!",
+    "version": "0.1.0",
+    "publisher": "titiaiev",
+    "engines": {
+        "vscode": "^1.25.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.openVueDocs"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.openVueDocs",
+                "title": "Open Vue Docs"
+            }
+        ]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "vscode": "^1.1.6"
+    }
+}
