@@ -1,7 +1,7 @@
 {
-    "name": "vue-docs-ru",
-    "displayName": "vue docs-ru",
-    "description": "Просмотр документации Vue.js и дополнений, прямо из VS Code!",
+    "name": "vue-docs",
+    "displayName": "Vue docs",
+    "description": "Просмотр документации [ Vue.js, Vuex, Vue Router, Vue SSR, Vuetify, ElementUI ] прямо из VS Code!",
     "version": "0.1.0",
     "publisher": "titiaiev",
     "engines": {

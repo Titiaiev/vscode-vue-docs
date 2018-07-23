@@ -9,17 +9,17 @@ const getWebviewContent = (uri) => {
     <!DOCTYPE html>
     <html lang="en">
     <head>
-        <style>
-            body, html
-            {
-                margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #fff;
-            }
-        </style>
+      <style>
+        body, html
+          {
+            margin: 0; padding: 0; height: 100%; overflow: hidden; background-color: #fff;
+          }
+      </style>
     </head>
     <body>
-        <iframe width="100%" height="100%" src="${uri}" frameborder="0">
-            <p>can't display ${uri}</p>
-        </iframe>
+      <iframe width="100%" height="100%" src="${uri}" frameborder="0">
+        <p>can't display ${uri}</p>
+      </iframe>
     </body>
     </html>
     `;
@@ -28,7 +28,7 @@ const getWebviewContent = (uri) => {
 
 const activate = (context) => {
   context.subscriptions.push(vscode.commands.registerCommand('extension.openVueDocs', () => {
-    let menuItems = ['Vue', 'Vuex', 'Vue Router', 'Vue SSR'];
+    let menuItems = ['Vue', 'Vuex', 'Vue Router', 'Vue SSR', 'Vuetify', 'ElementUI'];
 
     vscode.window.showQuickPick(menuItems).then((selectedMenuItem) => {
       const getURI_of = (item) => {
@@ -36,7 +36,9 @@ const activate = (context) => {
           ['Vue']: 'https://ru.vuejs.org/v2/guide/',
           ['Vuex']: 'https://vuex.vuejs.org/ru/',
           ['Vue Router']: 'https://router.vuejs.org/ru/',
-          ['Vue SSR']: 'https://ssr.vuejs.org/ru/'
+          ['Vue SSR']: 'https://ssr.vuejs.org/ru/',
+          ['Vuetify']: 'https://vuetifyjs.com/ru/getting-started/quick-start',
+          ['ElementUI']: 'http://element.eleme.io/#/en-US/component/installation'
         };
 
         // TODO: delete logs 

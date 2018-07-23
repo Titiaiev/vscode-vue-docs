@@ -1,4 +1,4 @@
-# vue-ru-docs README
+# vue-docs README
 
 This is the README for your extension "vue-ru-docs". After writing up a brief description, we recommend including the following sections.
 
