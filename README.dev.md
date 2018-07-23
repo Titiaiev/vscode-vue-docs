@@ -4,6 +4,12 @@
 
 > `git checkout dev .vscodeignore CHANGELOG.md extension.js package.json README.md .gitignore`
 
+## TODO:
+
++ Сделать иконку для расширения
++ Добавить в ридми инструкцию как пользоваться
++ добавить лицензию
+
 ## Материалы
 
 + [https://github.com/Microsoft/vscode/tree/master/extensions](https://github.com/Microsoft/vscode/tree/master/extensions)
