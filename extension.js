@@ -28,7 +28,7 @@ const getWebviewContent = (uri) => {
 
 const activate = (context) => {
   context.subscriptions.push(vscode.commands.registerCommand('extension.openVueDocs', () => {
-    let menuItems = ['Vue', 'Vuex', 'Vue Router', 'Vue SSR', 'Vuetify', 'ElementUI'];
+    let menuItems = ['Vue', 'Vuex', 'Vue Router', 'Vue SSR', 'Vuetify'];
 
     vscode.window.showQuickPick(menuItems).then((selectedMenuItem) => {
       const getURI_of = (item) => {
@@ -37,8 +37,7 @@ const activate = (context) => {
           ['Vuex']: 'https://vuex.vuejs.org/ru/',
           ['Vue Router']: 'https://router.vuejs.org/ru/',
           ['Vue SSR']: 'https://ssr.vuejs.org/ru/',
-          ['Vuetify']: 'https://vuetifyjs.com/ru/getting-started/quick-start',
-          ['ElementUI']: 'http://element.eleme.io/#/en-US/component/installation'
+          ['Vuetify']: 'https://vuetifyjs.com/ru/getting-started/quick-start'
         };
 
         // TODO: delete logs 
