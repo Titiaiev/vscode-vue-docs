@@ -4,6 +4,24 @@
     "description": "Просмотр документации [ Vue.js, Vuex, Vue Router, Vue SSR, Vuetify ] прямо из VS Code!",
     "version": "0.1.0",
     "publisher": "titiaiev",
+    "author": {
+        "name": "Maksim Titiaiev"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Titiaiev/vscode-vue-docs"
+    },
+      "bugs": {
+        "url": "https://github.com/Titiaiev/vscode-vue-docs/issues"
+    },
+    "keywords": [
+        "Vue",
+        "Vuex",
+        "Vue Router",
+        "Vue SSR",
+        "Vuetify",
+        "documentation"
+    ],
     "engines": {
         "vscode": "^1.25.0"
     },
@@ -15,6 +33,21 @@
     ],
     "main": "./extension",
     "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Vue docs configuration",
+            "properties": {
+                "vueDocs.lang": {
+                    "type": "string",
+                    "enum": [
+                        "ru",
+                        "en"
+                    ],
+                    "default": "",
+                    "description": "предпочтительный язык для документации. поумолчанию, будет выбиран язык интерфейса vs code.\n preferred language for documentation. By default, the interface language vs code"
+                  }
+            }
+        },
         "commands": [
             {
                 "command": "extension.openVueDocs",
