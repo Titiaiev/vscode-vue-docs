@@ -44,7 +44,7 @@
                         "en"
                     ],
                     "default": "",
-                    "description": "предпочтительный язык для документации. поумолчанию, будет выбиран язык интерфейса vs code.\n preferred language for documentation. By default, the interface language vs code"
+                    "description": "предпочтительный язык для документации. поумолчанию, будет выбран язык интерфейса vs code.\n preferred language for documentation. By default, the interface language vs code"
                   }
             }
         },
