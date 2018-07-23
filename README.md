@@ -2,7 +2,7 @@
 
 для мержа только нужных файлов из dev ветки нужно выполнить 
 
-> `git checkout dev .vscodeignore CHANGELOG.md extension.js package.json README.md`
+> `git checkout dev .vscodeignore CHANGELOG.md extension.js package.json README.md .gitignore`
 
 This is the README for your extension "vue-ru-docs". After writing up a brief description, we recommend including the following sections.
 
@@ -67,3 +67,4 @@ Added features X, Y, and Z.
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **Enjoy!**
+
