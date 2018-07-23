@@ -1,5 +1,9 @@
 # vue-docs README
 
+для мержа только нужных файлов из dev ветки нужно выполнить 
+
+> `git checkout dev .vscodeignore CHANGELOG.md extension.js package.json README.md`
+
 This is the README for your extension "vue-ru-docs". After writing up a brief description, we recommend including the following sections.
 
 ## Features
