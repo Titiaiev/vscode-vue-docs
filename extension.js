@@ -33,17 +33,24 @@ const activate = (context) => {
     vscode.window.showQuickPick(menuItems).then((selectedMenuItem) => {
       const getURI_of = (item) => {
         if(!item) { return null; }
+
+        const lang = (vscode.env.language.includes('ru')) ? 'ru' : '';
+
         let URI_of = {
-          ['Vue']: 'https://ru.vuejs.org/v2/guide/',
-          ['Vuex']: 'https://vuex.vuejs.org/ru/',
-          ['Vue Router']: 'https://router.vuejs.org/ru/',
-          ['Vue SSR']: 'https://ssr.vuejs.org/ru/',
-          ['Vuetify']: 'https://vuetifyjs.com/ru/getting-started/quick-start'
+          ['Vue']: (lang) ? `https://${lang}.vuejs.org/v2/guide/` : 'https://vuejs.org/v2/guide/',
+          ['Vuex']: `https://vuex.vuejs.org/${lang}`,
+          ['Vue Router']: `https://router.vuejs.org/${lang}`,
+          ['Vue SSR']: `https://ssr.vuejs.org/${lang}`,
+          ['Vuetify']: 'https://vuetifyjs.com/getting-started/quick-start'
         };
 
         // TODO: delete logs 
-        console.log('Выбран пункт: ', item);
-        console.log('URI_of: ', URI_of[item]);
+        // console.log('Выбран пункт: ', item);
+        // console.log('URI_of: ', URI_of);
+        // console.log('URI_of[item]: ', URI_of[item]);
+        // console.log(vscode.env.language);
+        // console.log(lang);
+
         return URI_of[item];
       };
 
@@ -61,7 +68,7 @@ const activate = (context) => {
         });
         panel.webview.html = getWebviewContent(selectedURI);
       }
-
+      
     });
   }));
 };
