@@ -27,14 +27,22 @@ const getWebviewContent = (uri) => {
   return html;
 };
 
-const getURI_of = (item = '') => {
+const getLang = () => {
+  const supportedLangs = ['ru', 'en', 'zh'];
+  const configLang = vscode.workspace.getConfiguration().vueDocs.lang;
+  const interfaceLang = (vscode.env.language.includes('ru')) ? 'ru' : 
+                          (vscode.env.language.includes('en')) ? 'en' :
+                            (vscode.env.language.includes('zh')) ? 'zh' : null;
 
-  const lang = (vscode.workspace.getConfiguration().vueDocs.lang) 
-  ? vscode.workspace.getConfiguration().vueDocs.lang : (vscode.env.language.includes('ru')) 
-                                                                        ? 'ru' : '';
-                                                                        
+  // console.log(interfaceLang);
+  if(configLang !== '') { return configLang; }
+  if(supportedLangs.includes(interfaceLang)) { return interfaceLang }
+  return 'en';
+};
+
+const getURI_of = (item = '', lang = 'en') => {
   let URI_of = {
-    ['Vue']: (lang !== 'en') ? `https://${lang}.vuejs.org/v2/guide/` : 'https://vuejs.org/v2/guide/',// в англ версии к домену ничего не нужно добавлять
+    ['Vue']: (lang !== 'en') ? ((lang === 'zh') ? 'https://cn.vuejs.org/v2/guide/' : `https://${lang}.vuejs.org/v2/guide/`) : 'https://vuejs.org/v2/guide/',// в англ версии к домену ничего не нужно добавлять
     ['Vuex']: `https://vuex.vuejs.org/${lang}`,
     ['Vue Router']: `https://router.vuejs.org/${lang}`,
     ['Vue SSR']: `https://ssr.vuejs.org/${lang}`,
@@ -54,7 +62,7 @@ const getURI_of = (item = '') => {
 
 // активация расширения
 const activate = (context) => {
-  context.subscriptions.push(vscode.commands.registerCommand('extension.openVueDocs', () => {
+  const openVueDocs = vscode.commands.registerCommand('extension.openVueDocs', () => {
     let menuItems = ['Vue', 'Vuex', 'Vue Router', 'Vue SSR', 'Vuetify', 'Nuxt.js']; // возможные опции
 
     // выбор опции из выпадающего списка
@@ -73,12 +81,15 @@ const activate = (context) => {
           retainContextWhenHidden: true
         });
 
+        const lang = getLang();
         // получаем URI соответствующий выбранному пункту меню
-        const selectedURI = getURI_of(selectedMenuItem);
+        const selectedURI = getURI_of(selectedMenuItem, lang);
         panel.webview.html = getWebviewContent(selectedURI); // показываем ранее определённый шаблон с полученым URI
       }
     });
-  }));
+  });
+
+  context.subscriptions.push(openVueDocs);
 };
 
 exports.activate = activate;

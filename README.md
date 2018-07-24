@@ -9,7 +9,7 @@ To use, press `F1` then type` Open Vue Docs` then press `Enter`, select the desi
 By default, the VS Code interface language will be selected for the docks. This can be changed in the settings:
 
 > File -> Preferences -> Settings -> Vue docs configuration ->
-> ` "vueDocs.lang": "ru | en" `
+> ` "vueDocs.lang": "ru | en | zh" `
 
 + [repository](https://github.com/Titiaiev/vscode-vue-docs)
 + [bugs](https://github.com/Titiaiev/vscode-vue-docs/issues)
@@ -23,7 +23,7 @@ By default, the VS Code interface language will be selected for the docks. This 
 Поумолчанию, для доков будет выбран язык интерфейса VS Code. Это можно изменить в настройках:
 
 > Параметры -> Vue docs configuration ->
-> ` "vueDocs.lang": "ru | en" `
+> ` "vueDocs.lang": "ru | en | zh" `
 
 + [репозиторий](https://github.com/Titiaiev/vscode-vue-docs)
 + [баги](https://github.com/Titiaiev/vscode-vue-docs/issues)

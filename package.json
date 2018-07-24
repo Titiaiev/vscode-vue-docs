@@ -2,7 +2,7 @@
     "name": "vue-docs",
     "displayName": "Vue docs",
     "description": "Viewing documentation [Vue.js, Vuex, Vue Router, Vue SSR, Vuetify] directly from VS Code!",
-    "version": "0.1.0",
+    "version": "0.2.1",
     "publisher": "titiaiev",
     "author": {
         "name": "Maksim Titiaiev"
@@ -48,7 +48,8 @@
                     "type": "string",
                     "enum": [
                         "ru",
-                        "en"
+                        "en",
+                        "zh"
                     ],
                     "default": "",
                     "description": "предпочтительный язык для документации. поумолчанию, будет выбран язык интерфейса vs code.\n preferred language for documentation. By default, the interface language vs code"
