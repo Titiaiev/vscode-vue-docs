@@ -1,10 +1,5 @@
 # Change Log
 ## [Unreleased]
-+ add vue press
-  - [en] https://vuepress.vuejs.org/guide/
-  - [ru] https://vuepress-lrouuhpdsl.now.sh/ru/guide/
-  - [zh] https://vuepress.vuejs.org/zh/guide/
-
 
 + реализовать возможность добавлять пользовательские ссылки
 + реализовать в настройках возможность убирать не нужные пункты меню
@@ -14,7 +9,7 @@
 
 ## [1.0.0] - 2018-0-0
 ### Added
-+
++ Added VuePress
 ### Changed
 +
 

@@ -42,28 +42,57 @@ const getLang = () => {
 
 const getURI_of = (item = '', lang = 'en') => {
   let URI_of = {
-    ['Vue']: (lang !== 'en') ? ((lang === 'zh') ? 'https://cn.vuejs.org/v2/guide/' : `https://${lang}.vuejs.org/v2/guide/`) : 'https://vuejs.org/v2/guide/',// в англ версии к домену ничего не нужно добавлять
-    ['Vuex']: `https://vuex.vuejs.org/${lang}`,
-    ['Vue Router']: `https://router.vuejs.org/${lang}`,
-    ['Vue SSR']: `https://ssr.vuejs.org/${lang}`,
-    ['Vuetify']: 'https://vuetifyjs.com/getting-started/quick-start',
-    ['Nuxt.js']: (lang !== 'en') ? `https://${lang}.nuxtjs.org/guide` : 'https://nuxtjs.org/guide'
+    ['Vue']: {
+      en: 'https://vuejs.org/v2/guide/',
+      ru: 'https://ru.vuejs.org/v2/guide/',
+      zh: 'https://cn.vuejs.org/v2/guide/',
+    },
+    ['Vuex']: {
+      en: 'https://vuex.vuejs.org/en/',
+      ru: 'https://vuex.vuejs.org/ru/',
+      zh: 'https://vuex.vuejs.org/zh/',
+    },
+    ['Vue Router']: {
+      en: 'https://router.vuejs.org/en/',
+      ru: 'https://router.vuejs.org/ru/',
+      zh: 'https://router.vuejs.org/zh/',
+    },
+    ['Vue SSR']: {
+      en: 'https://ssr.vuejs.org/en/',
+      ru: 'https://ssr.vuejs.org/ru/',
+      zh: 'https://ssr.vuejs.org/zh/',
+    },
+    ['Vuetify']: {
+      en: 'https://vuetifyjs.com/getting-started/quick-start',
+      ru: 'https://vuetifyjs.com/getting-started/quick-start',
+      zh: 'https://vuetifyjs.com/getting-started/quick-start',
+    },
+    ['Nuxt.js']: {
+      en: 'https://nuxtjs.org/guide',
+      ru: 'https://ru.nuxtjs.org/guide',
+      zh: 'https://zh.nuxtjs.org/guide',
+    },
+    ['VuePress']: {
+      en: 'https://vuepress.vuejs.org/guide/',
+      ru: 'https://vuepress-lrouuhpdsl.now.sh/ru/guide/',// FIXME: когда выйдет перевод на оф сайте
+      zh: 'https://vuepress.vuejs.org/zh/guide/',
+    },
   };
 
   // TODO: delete logs 
   // console.log('Выбран пункт: ', item);
   // console.log('URI_of: ', URI_of);
-  // console.log('URI_of[item]: ', URI_of[item]);
+  // console.log('URI_of[item][lang]: ', URI_of[item][lang]);
   // console.log("язык интерфейса vs code: ", vscode.env.language);
   // console.log('lang: ', lang);
   // console.log('язык в настройках: ', vscode.workspace.getConfiguration().vueDocs.lang);
-  return String(URI_of[item]);
+  return String(URI_of[item][lang]);
 };
 
 // активация расширения
 const activate = (context) => {
   const openVueDocs = vscode.commands.registerCommand('extension.openVueDocs', () => {
-    let menuItems = ['Vue', 'Vuex', 'Vue Router', 'Vue SSR', 'Vuetify', 'Nuxt.js']; // возможные опции
+    let menuItems = ['Vue', 'Vuex', 'Vue Router', 'Vue SSR', 'Nuxt.js', 'VuePress', 'Vuetify']; // возможные опции
 
     // выбор опции из выпадающего списка
     vscode.window.showQuickPick(menuItems).then((selectedMenuItem) => {
