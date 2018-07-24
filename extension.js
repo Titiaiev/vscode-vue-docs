@@ -38,7 +38,8 @@ const getURI_of = (item = '') => {
     ['Vuex']: `https://vuex.vuejs.org/${lang}`,
     ['Vue Router']: `https://router.vuejs.org/${lang}`,
     ['Vue SSR']: `https://ssr.vuejs.org/${lang}`,
-    ['Vuetify']: 'https://vuetifyjs.com/getting-started/quick-start'
+    ['Vuetify']: 'https://vuetifyjs.com/getting-started/quick-start',
+    ['Nuxt.js']: (lang !== 'en') ? `https://${lang}.nuxtjs.org/guide` : 'https://nuxtjs.org/guide'
   };
 
   // TODO: delete logs 
@@ -54,7 +55,7 @@ const getURI_of = (item = '') => {
 // активация расширения
 const activate = (context) => {
   context.subscriptions.push(vscode.commands.registerCommand('extension.openVueDocs', () => {
-    let menuItems = ['Vue', 'Vuex', 'Vue Router', 'Vue SSR', 'Vuetify']; // возможные опции
+    let menuItems = ['Vue', 'Vuex', 'Vue Router', 'Vue SSR', 'Vuetify', 'Nuxt.js']; // возможные опции
 
     // выбор опции из выпадающего списка
     vscode.window.showQuickPick(menuItems).then((selectedMenuItem) => {
