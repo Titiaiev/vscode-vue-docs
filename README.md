@@ -16,9 +16,9 @@ By default, the VS Code interface language will be selected for the docks. This 
 
 ## ru
 
-Просмотр документации [ Vue.js, Vuex, Vue Router, Vue SSR, Vuetify ] во вкладке VS Code!
+Просмотр официальной документации [ Vue.js, Vuex, Vue Router, Vue SSR, Vuetify ] во вкладке VS Code!
 
-Для использования нажмите `F1` далее наберите `Open Vue Docs` затем нажмите `Enter`, выбирете из выпадающего списка нужный пункт.
+Для использования нажмите `F1` далее наберите `Open Vue Docs` затем нажмите `Enter`, выберите из выпадающего списка нужный пункт.
 
 Поумолчанию, для доков будет выбран язык интерфейса VS Code. Это можно изменить в настройках:
 
