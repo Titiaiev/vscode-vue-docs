@@ -1,8 +1,8 @@
-'use strict';
-Object.defineProperty(exports, "__esModule", {
-  value: true
+Object.defineProperty(exports, '__esModule', {
+  value: true,
 });
-const vscode = require("vscode"); // подключаем библиотеку vscode
+// eslint-disable-next-line
+const vscode = require('vscode'); // подключаем библиотеку vscode
 
 // шаблон для веб-отображения
 const getWebviewContent = (uri) => {
@@ -30,89 +30,103 @@ const getWebviewContent = (uri) => {
 const getLang = () => {
   const supportedLangs = ['ru', 'en', 'zh'];
   const configLang = vscode.workspace.getConfiguration().vueDocs.lang;
-  const interfaceLang = (vscode.env.language.includes('ru')) ? 'ru' : 
-                          (vscode.env.language.includes('en')) ? 'en' :
-                            (vscode.env.language.includes('zh')) ? 'zh' : null;
+  /* eslint "no-nested-ternary": 0 */
+  const interfaceLang = vscode.env.language.includes('ru')
+    ? 'ru'
+    : vscode.env.language.includes('en')
+      ? 'en'
+      : vscode.env.language.includes('zh')
+        ? 'zh'
+        : null;
 
   // console.log(interfaceLang);
-  if(configLang !== '') { return configLang; }
-  if(supportedLangs.includes(interfaceLang)) { return interfaceLang }
+  if (configLang !== '') {
+    return configLang;
+  }
+  if (supportedLangs.includes(interfaceLang)) {
+    return interfaceLang;
+  }
   return 'en';
 };
 
-const getURI_of = (item = '', lang = 'en') => {
-  let URI_of = {
-    ['Vue']: {
+const getURIof = (item = '', lang = 'en') => {
+  const URIof = {
+    Vue: {
       en: 'https://vuejs.org/v2/guide/',
       ru: 'https://ru.vuejs.org/v2/guide/',
       zh: 'https://cn.vuejs.org/v2/guide/',
     },
-    ['Vuex']: {
+    Vuex: {
       en: 'https://vuex.vuejs.org/en/',
       ru: 'https://vuex.vuejs.org/ru/',
       zh: 'https://vuex.vuejs.org/zh/',
     },
-    ['Vue Router']: {
+    'Vue Router': {
       en: 'https://router.vuejs.org/en/',
       ru: 'https://router.vuejs.org/ru/',
       zh: 'https://router.vuejs.org/zh/',
     },
-    ['Vue SSR']: {
+    'Vue SSR': {
       en: 'https://ssr.vuejs.org/en/',
       ru: 'https://ssr.vuejs.org/ru/',
       zh: 'https://ssr.vuejs.org/zh/',
     },
-    ['Vuetify']: {
+    Vuetify: {
       en: 'https://vuetifyjs.com/getting-started/quick-start',
       ru: 'https://vuetifyjs.com/getting-started/quick-start',
       zh: 'https://vuetifyjs.com/getting-started/quick-start',
     },
-    ['Nuxt.js']: {
+    'Nuxt.js': {
       en: 'https://nuxtjs.org/guide',
       ru: 'https://ru.nuxtjs.org/guide',
       zh: 'https://zh.nuxtjs.org/guide',
     },
-    ['VuePress']: {
+    VuePress: {
       en: 'https://vuepress.vuejs.org/guide/',
-      ru: 'https://vuepress-lrouuhpdsl.now.sh/ru/guide/',// FIXME: когда выйдет перевод на оф сайте
+      ru: 'https://vuepress-lrouuhpdsl.now.sh/ru/guide/', // FIXME: когда выйдет перевод на оф сайте
       zh: 'https://vuepress.vuejs.org/zh/guide/',
     },
   };
 
-  // TODO: delete logs 
+  // TODO: delete logs
   // console.log('Выбран пункт: ', item);
-  // console.log('URI_of: ', URI_of);
-  // console.log('URI_of[item][lang]: ', URI_of[item][lang]);
+  // console.log('URIof: ', URIof);
+  // console.log('URIof[item][lang]: ', URIof[item][lang]);
   // console.log("язык интерфейса vs code: ", vscode.env.language);
   // console.log('lang: ', lang);
   // console.log('язык в настройках: ', vscode.workspace.getConfiguration().vueDocs.lang);
-  return String(URI_of[item][lang]);
+  return String(URIof[item][lang]);
 };
 
 // активация расширения
 const activate = (context) => {
   const openVueDocs = vscode.commands.registerCommand('extension.openVueDocs', () => {
-    let menuItems = ['Vue', 'Vuex', 'Vue Router', 'Vue SSR', 'Nuxt.js', 'VuePress', 'Vuetify']; // возможные опции
+    const menuItems = ['Vue', 'Vuex', 'Vue Router', 'Vue SSR', 'Nuxt.js', 'VuePress', 'Vuetify']; // возможные опции
 
     // выбор опции из выпадающего списка
     vscode.window.showQuickPick(menuItems).then((selectedMenuItem) => {
-      if(selectedMenuItem) { // если опция выбрана - работаем, (возможна ситуация когда пользователь кликнул мимо и selectedMenuItem === undefined)
+      if (selectedMenuItem) {
+        // если опция выбрана - работаем, (возможна ситуация когда пользователь кликнул мимо и selectedMenuItem === undefined)
 
         // подготавливаем веб-вью панель
-        const panel = vscode.window.createWebviewPanel('webDocs', selectedMenuItem, vscode.ViewColumn.One, {
+        const panel = vscode.window.createWebviewPanel(
+          'webDocs',
+          selectedMenuItem,
+          vscode.ViewColumn.One,
+          {
+            // разрешить загруженным сайтам использовать свои скрипты (потенциально опасно)
+            // https://code.visualstudio.com/docs/extensions/webview#_scripts-and-message-passing
+            enableScripts: true,
 
-          // разрешить загруженным сайтам использовать свои скрипты (потенциально опасно)
-          // https://code.visualstudio.com/docs/extensions/webview#_scripts-and-message-passing
-          enableScripts: true,
-          
-          // лучше использовать сохранение состояния
-          // https://code.visualstudio.com/docs/extensions/webview#_persistence
-          retainContextWhenHidden: true
-        });
+            // лучше использовать сохранение состояния
+            // https://code.visualstudio.com/docs/extensions/webview#_persistence
+            retainContextWhenHidden: true,
+          }
+        );
 
         const lang = getLang();
         // получаем URI соответствующий выбранному пункту меню
-        const selectedURI = getURI_of(selectedMenuItem, lang);
+        const selectedURI = getURIof(selectedMenuItem, lang);
         panel.webview.html = getWebviewContent(selectedURI); // показываем ранее определённый шаблон с полученым URI
       }
     });
