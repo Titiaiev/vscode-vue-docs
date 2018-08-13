@@ -1,33 +1,31 @@
-# Welcome to your VS Code Extension
+# Добро пожаловать в ваш VS Code Extension
 
-## What's in the folder
-* This folder contains all of the files necessary for your extension.
-* `package.json` - this is the manifest file in which you declare your extension and command.
-The sample plugin registers a command and defines its title and command name. With this information
-VS Code can show the command in the command palette. It doesn’t yet need to load the plugin.
-* `extension.js` - this is the main file where you will provide the implementation of your command.
-The file exports one function, `activate`, which is called the very first time your extension is
-activated (in this case by executing the command). Inside the `activate` function we call `registerCommand`.
-We pass the function containing the implementation of the command as the second parameter to
-`registerCommand`.
+## Что в этой папке?
+* Эта папка содержит все файлы, необходимые для вашего расширения.
+* `package.json` - это файл манифеста, в котором вы объявляете свое расширение и команду.
+Плагин регистрирует команду и определяет ее название (title) и имя команды. С этой информацией
+VS Code может отображать команду в палитре команд. Ему еще не нужно загружать плагин.
+* `extension.js` - это основной файл, в котором вы предоставите реализацию своей команды.
+Это файл экспортирует функцию, `activate`, которая вызывается в первый раз, когда ваше расширение активировано (в данном случае, с помощью команды). Внутри `activate` function мы вызываем `registerCommand`.
+В качестве второго параметра для `registerCommand`, мы передаем функцию, содержащую реализацию команды.
 
-## Get up and running straight away
-* Press `F5` to open a new window with your extension loaded.
-* Run your command from the command palette by pressing (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac) and typing `Hello World`.
-* Set breakpoints in your code inside `extension.js` to debug your extension.
-* Find output from your extension in the debug console.
+## Стартуйте прямо сейчас
+* Нажмите `F5` чтобы открыть новое окно с загруженым вашим расширением.
+* Запустите вашу команду из палитры команд набирая (`Ctrl+Shift+P` or `Cmd+Shift+P` на Mac) и напечатайте `Hello World`.
+* Установите брейкпоинты в вашем коде внутри `extension.js` для отладки вашего расширения.
+* Найдите вывод из вашего расширения в консоли отладки.
 
-## Make changes
-* You can relaunch the extension from the debug toolbar after changing code in `extension.js`.
-* You can also reload (`Ctrl+R` or `Cmd+R` on Mac) the VS Code window with your extension to load your changes.
+## Вносите изменения
+* Вы можете перезагрузить расширение с панели инструментов отладки после изменения кода в `extension.js`.
+* Вы также можете перезагрузить (`Ctrl+R` или `Cmd+R` на Mac) VS Code  с расширением для загрузки изменений.
 
-## Explore the API
-* You can open the full set of our API when you open the file `node_modules/vscode/vscode.d.ts`.
+## Изучите API
+* Вы можете открыть полный набор наших API при открытии файла `node_modules/vscode/vscode.d.ts`.
 
-## Run tests
-* Open the debug viewlet (`Ctrl+Shift+D` or `Cmd+Shift+D` on Mac) and from the launch configuration dropdown pick `Launch Tests`.
-* Press `F5` to run the tests in a new window with your extension loaded.
-* See the output of the test result in the debug console.
-* Make changes to `test/extension.test.js` or create new test files inside the `test` folder.
-    * By convention, the test runner will only consider files matching the name pattern `**.test.js`.
-    * You can create folders inside the `test` folder to structure your tests any way you want.
+## Запуск тестов
+* Откройте окно просмотра отладки (`Ctrl+Shift+D` или `Cmd+Shift+D` на Mac) и выбирете из выпадающего списка конфигураций `Launch Tests`.
+* Нажмите `F5` для запуска тестов в новом окне с загруженым расширением.
+* Смотрите вывод результатов тестов в консоле отладки.
+* Внесите изменения в `test/extension.test.js` или создайте новый файл тестов внутри папки `test`.
+    * По соглашению, тест-ранер будет искать файлы, соответствующие шаблону `**.test.js`.
+    * Вы можете создавать папки внутри папки `test` чтобы структурировать тесты как вам удобно.
