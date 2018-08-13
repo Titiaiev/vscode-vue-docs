@@ -4,7 +4,7 @@
 
 Viewing documentation [Vue.js, Vuex, Vue Router, Vue SSR, Vuetify] in the VS Code!
 
-To use, press `F1` then type` Open Vue Docs` then press `Enter`, select the desired item from the drop-down list.
+To use, press `F1` then type `Open Vue Docs` then press `Enter`, select the desired item from the drop-down list.
 
 By default, the VS Code interface language will be selected for the docks. This can be changed in the settings:
 
