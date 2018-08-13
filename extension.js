@@ -43,6 +43,7 @@ const getLang = () => {
   if (configLang !== '') {
     return configLang;
   }
+  // @ts-ignore
   if (supportedLangs.includes(interfaceLang)) {
     return interfaceLang;
   }
