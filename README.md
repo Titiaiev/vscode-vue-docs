@@ -2,7 +2,7 @@
 
 ## en
 
-Viewing documentation [Vue.js, Vuex, Vue Router, Vue SSR, Vuetify] in the VS Code!
+Viewing documentation [Vue.js, Vue CLI, Vuex, Vue Router, Vue SSR, Vuetify, Nuxt.js, VuePress] in the VS Code!
 
 To use, press `F1` then type `Open Vue Docs` then press `Enter`, select the desired item from the drop-down list.
 
@@ -16,7 +16,7 @@ By default, the VS Code interface language will be selected for the docks. This 
 
 ## ru
 
-Просмотр официальной документации [ Vue.js, Vuex, Vue Router, Vue SSR, Vuetify ] во вкладке VS Code!
+Просмотр официальной документации [ Vue.js, Vue CLI, Vuex, Vue Router, Vue SSR, Vuetify, Nuxt.js, VuePress] во вкладке VS Code!
 
 Для использования нажмите `F1` далее наберите `Open Vue Docs` затем нажмите `Enter`, выберите из выпадающего списка нужный пункт.
 
