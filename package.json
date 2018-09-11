@@ -1,7 +1,7 @@
 {
     "name": "vue-docs",
     "displayName": "Vue docs",
-    "description": "Viewing documentation [Vue.js, Vue CLI, Vuex, Vue Router, Vue SSR, Vuetify] directly from VS Code!",
+    "description": "Viewing documentation [Vue.js, Vue CLI, Vuex, Vue Router, Vue SSR, Vuetify, Nuxt.js, VuePress] directly from VS Code!",
     "version": "0.3.3",
     "publisher": "titiaiev",
     "author": {
@@ -29,6 +29,9 @@
         "Vue Router",
         "Vue SSR",
         "Vuetify",
+        "Nuxt",
+        "Nuxt.js",
+        "VuePress",
         "documentation"
     ],
     "engines": {
