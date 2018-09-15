@@ -1,8 +1,8 @@
 {
     "name": "vue-docs",
     "displayName": "Vue docs",
-    "description": "Viewing documentation [Vue.js, Vuex, Vue Router, Vue SSR, Vuetify] directly from VS Code!",
-    "version": "0.3.3",
+    "description": "Viewing documentation [Vue.js, Vuex, Vue Router, Vue SSR, Vuetify, Nuxt.js, VuePress] directly from VS Code!",
+    "version": "1.0.0",
     "publisher": "titiaiev",
     "author": {
         "name": "Maksim Titiaiev"
@@ -27,6 +27,8 @@
         "Vue Router",
         "Vue SSR",
         "Vuetify",
+        "Nuxt.js",
+        "VuePress",
         "documentation"
     ],
     "engines": {
@@ -53,6 +55,11 @@
                     ],
                     "default": "",
                     "description": "предпочтительный язык для документации. поумолчанию, будет выбран язык интерфейса vs code.\n preferred language for documentation. By default, the interface language vs code"
+                },
+                "vueDocs.links": {
+                    "type": "object",
+                    "default": { "Vuetify": "https://vuetifyjs.com/getting-started/quick-start" },
+                    "description": "пользовательские ссылки, появятся в списке документаций. !!!Не добавляйте источники которым не доверяете, так как JS код подключенный к сайту, также выполняется и в редакторе VS Code. \n user references appear in the list of documentation. !!!Do not add sources that do not trust, because the JS code connected to the site is also executed in the VS Code editor."
                 }
             }
         },

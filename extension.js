@@ -3,6 +3,7 @@ Object.defineProperty(exports, '__esModule', {
 });
 // eslint-disable-next-line
 const vscode = require('vscode'); // подключаем библиотеку vscode
+const customLinksObject = vscode.workspace.getConfiguration().vueDocs.links;
 
 // шаблон для веб-отображения
 const getWebviewContent = (uri) => {
@@ -51,6 +52,11 @@ const getLang = () => {
 };
 
 const getURIof = (item = '', lang = 'en') => {
+  if (typeof customLinksObject[item] === 'string') {
+    // console.log(customLinksObject[item]);
+    return String(customLinksObject[item]);
+  }
+
   const URIof = {
     Vue: {
       en: 'https://vuejs.org/v2/guide/',
@@ -71,11 +77,6 @@ const getURIof = (item = '', lang = 'en') => {
       en: 'https://ssr.vuejs.org/en/',
       ru: 'https://ssr.vuejs.org/ru/',
       zh: 'https://ssr.vuejs.org/zh/',
-    },
-    Vuetify: {
-      en: 'https://vuetifyjs.com/getting-started/quick-start',
-      ru: 'https://vuetifyjs.com/getting-started/quick-start',
-      zh: 'https://vuetifyjs.com/getting-started/quick-start',
     },
     'Nuxt.js': {
       en: 'https://nuxtjs.org/guide',
@@ -102,7 +103,11 @@ const getURIof = (item = '', lang = 'en') => {
 // активация расширения
 const activate = (context) => {
   const openVueDocs = vscode.commands.registerCommand('extension.openVueDocs', () => {
-    const menuItems = ['Vue', 'Vuex', 'Vue Router', 'Vue SSR', 'Nuxt.js', 'VuePress', 'Vuetify']; // возможные опции
+    const customMenuItems = Object.getOwnPropertyNames(customLinksObject);
+
+    const defaultMenuItems = ['Vue', 'Vuex', 'Vue Router', 'Vue SSR', 'Nuxt.js', 'VuePress']; // возможные опции
+    const menuItems = [].concat(defaultMenuItems, customMenuItems);
+    // console.log(menuItems);
 
     // выбор опции из выпадающего списка
     vscode.window.showQuickPick(menuItems).then((selectedMenuItem) => {
