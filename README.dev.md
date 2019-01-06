@@ -15,3 +15,4 @@
 + [https://github.com/tigerxy/VSCode-ShareCode/blob/master/src/sharecode.ts](https://github.com/tigerxy/VSCode-ShareCode/blob/master/src/sharecode.ts)
 + [https://code.visualstudio.com/docs/extensions/testing-extensions](https://code.visualstudio.com/docs/extensions/testing-extensions)
 + написать гайд по расширениям
++ [https://github.com/alefragnani/vscode-project-manager](https://github.com/alefragnani/vscode-project-manager)

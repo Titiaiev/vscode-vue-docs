@@ -2,7 +2,7 @@
     "name": "vue-docs",
     "displayName": "Vue docs",
     "description": "Viewing documentation [Vue.js, Vuex, Vue Router, Vue SSR, Vuetify, Nuxt.js, VuePress] directly from VS Code!",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "titiaiev",
     "author": {
         "name": "Maksim Titiaiev"
