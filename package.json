@@ -2,7 +2,7 @@
     "name": "vue-docs",
     "displayName": "Vue docs",
     "description": "Viewing documentation [Vue.js, Vuex, Vue Router, Vue SSR, Vuetify, Nuxt.js, VuePress] directly from VS Code!",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "publisher": "titiaiev",
     "author": {
         "name": "Maksim Titiaiev"
@@ -58,7 +58,9 @@
                 },
                 "vueDocs.links": {
                     "type": "object",
-                    "default": { "Vuetify": "https://vuetifyjs.com/getting-started/quick-start" },
+                    "default": {
+                        "Vuetify": "https://vuetifyjs.com/getting-started/quick-start"
+                    },
                     "description": "пользовательские ссылки, появятся в списке документаций. !!!Не добавляйте источники которым не доверяете, так как JS код подключенный к сайту, также выполняется и в редакторе VS Code. \n user references appear in the list of documentation. !!!Do not add sources that do not trust, because the JS code connected to the site is also executed in the VS Code editor."
                 }
             }
@@ -75,6 +77,6 @@
         "test": "node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "vscode": "^1.1.6"
+        "vscode": "^1.1.33"
     }
 }
