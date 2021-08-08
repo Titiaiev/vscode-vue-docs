@@ -29,7 +29,7 @@ const getWebviewContent = (uri) => {
 };
 
 const getLang = () => {
-  const supportedLangs = ['ru', 'en', 'zh'];
+  const supportedLangs = ['ru', 'en', 'zh', 'ja'];
   const configLang = vscode.workspace.getConfiguration().vueDocs.lang;
   /* eslint "no-nested-ternary": 0 */
   const interfaceLang = vscode.env.language.includes('ru')
@@ -38,7 +38,9 @@ const getLang = () => {
       ? 'en'
       : vscode.env.language.includes('zh')
         ? 'zh'
-        : null;
+        : vscode.env.language.includes('ja')
+          ? 'ja'
+          : null;
 
   // console.log(interfaceLang);
   if (configLang !== '') {
@@ -62,31 +64,37 @@ const getURIof = (item = '', lang = 'en') => {
       en: 'https://vuejs.org/v2/guide/',
       ru: 'https://ru.vuejs.org/v2/guide/',
       zh: 'https://cn.vuejs.org/v2/guide/',
+      ja: 'https://jp.vuejs.org/v2/guide/',
     },
     Vuex: {
       en: 'https://vuex.vuejs.org/en/',
       ru: 'https://vuex.vuejs.org/ru/',
       zh: 'https://vuex.vuejs.org/zh/',
+      ja: 'https://vuex.vuejs.org/ja/',
     },
     'Vue Router': {
       en: 'https://router.vuejs.org/en/',
       ru: 'https://router.vuejs.org/ru/',
       zh: 'https://router.vuejs.org/zh/',
+      ja: 'https://router.vuejs.org/ja/',
     },
     'Vue SSR': {
       en: 'https://ssr.vuejs.org/en/',
       ru: 'https://ssr.vuejs.org/ru/',
       zh: 'https://ssr.vuejs.org/zh/',
+      ja: 'https://ssr.vuejs.org/ja/',
     },
     'Nuxt.js': {
       en: 'https://nuxtjs.org/guide',
       ru: 'https://ru.nuxtjs.org/guide',
       zh: 'https://zh.nuxtjs.org/guide',
+      ja: 'https://ja.nuxtjs.org/guide',
     },
     VuePress: {
       en: 'https://vuepress.vuejs.org/guide/',
       ru: 'https://vuepress-lrouuhpdsl.now.sh/ru/guide/', // FIXME: когда выйдет перевод на оф сайте
       zh: 'https://vuepress.vuejs.org/zh/guide/',
+      ja: 'https://vuepress.vuejs.org/guide/', // FIXME: doesn't support ja
     },
   };
 
